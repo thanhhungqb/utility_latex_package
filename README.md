@@ -14,5 +14,5 @@ Usage:
 
 
 # License
-Unless explicitly specified, all source codes/packages are under the LPPL version 1.3c license.
+Unless explicitly specified, all source codes/packages are under the [LPPL version 1.3c](https://choosealicense.com/licenses/lppl-1.3c/) license.
 
