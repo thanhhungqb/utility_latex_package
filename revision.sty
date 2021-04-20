@@ -1,0 +1,28 @@
+% Designed by: thanhhungqb@gmail.com
+% Year: 2021
+% Using together with easyReview package
+% easyReview during revise and for accept final version replace by this package (without edit any of text body)
+% usage:
+% in preamble
+% \usepackage{revision}
+% \setreviewson % when review (default)
+% \setreviewsaccept % for final version
+
+\ProvidesPackage{revision}
+
+\RequirePackage{easyReview}
+\RequirePackage{ulem}
+
+% renew using sout from ulem instead old soul with error when long text
+\renewcommand{\remove}[1]{\ifistoreview\alertColor{\sout{#1}}\else #1\fi}
+
+\def\setreviewsaccept{
+    \setreviewsoff
+    \renewcommand{\alert}[1]{##1}
+    \renewcommand{\highlight}[1]{##1}
+    % see: https://tex.stackexchange.com/questions/344425/should-i-use-unskip-or-ignorespaces-to-mark-up-and-possibly-hide-superfluous
+    \renewcommand\remove[1]{\ifvmode\else\unskip\fi}
+    \renewcommand\add[1]{##1}
+    \renewcommand\replace[2]{##2}
+    \renewcommand\comment[1]{}
+}
